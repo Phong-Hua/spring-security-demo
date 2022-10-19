@@ -11,7 +11,7 @@
 	<properties>
 		<springframework.version>5.1.0.RELEASE</springframework.version>
 		<springsecurity.version>5.1.0.RELEASE</springsecurity.version>
-		
+
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -57,7 +57,18 @@
 			<version>4.13.1</version>
 			<scope>test</scope>
 		</dependency>
-
+		<!-- Add Spring Security -->
+		<!-- spring-security-web and spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${springsecurity.version}</version>
+		</dependency>
 	</dependencies>
 
 	<!-- TO DO: Add support for Maven WAR Plugin -->
