@@ -31,13 +31,17 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests() // this line: restrict access based on the HttpServlet Request
 				.anyRequest().authenticated() // this line: any request to the app must be authenticated
-				.and().formLogin() // this line: we customize the login process
-				.loginPage("/showMyLoginPage") // this line: our login form is at "/showMyLoginPage". We need a
-												// controller for this mapping.
-				.loginProcessingUrl("/authenticateTheUser") // this line: login form should POST data to this URL for
-															// processing. No controller request mapping for this url.
-															// Spring Security Filters will do this.
-				.permitAll() // this line: allow everyone to see login page. No need to be logged in.
+				.and()
+					.formLogin() // this line: we customize the login process
+					.loginPage("/showMyLoginPage") // this line: our login form is at "/showMyLoginPage". We need a
+													// controller for this mapping.
+					.loginProcessingUrl("/authenticateTheUser") // this line: login form should POST data to this URL for
+																// processing. No controller request mapping for this url.
+																// Spring Security Filters will do this.
+					.permitAll() // this line: allow everyone to see login page. No need to be logged in.
+				.and()
+					.logout()	// adds logout support
+					.permitAll()
 		;
 	}
 }
