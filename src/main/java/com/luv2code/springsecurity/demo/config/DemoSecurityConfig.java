@@ -31,7 +31,11 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests() // this line: restrict access based on the HttpServlet Request
-				.anyRequest().authenticated() // this line: any request to the app must be authenticated
+				// Delete anyRequest().authenticated() because this line means anyone who authenticated can access any url
+				// .anyRequest().authenticated() // this line: any request to the app must be authenticated
+				.antMatchers("/").hasRole("EMPLOYEE")	// any one who has role EMPLOYEE can access the root
+				.antMatchers("/leaders/**").hasRole("MANAGER")	// anyone with MANAGER role can access /leaders/**, ** mean sub-directories
+				.antMatchers("/systems/**").hasRole("ADMIN")	// anyone with ADMIN role can access /systems/**
 				.and()
 					.formLogin() // this line: we customize the login process
 					.loginPage("/showMyLoginPage") // this line: our login form is at "/showMyLoginPage". We need a

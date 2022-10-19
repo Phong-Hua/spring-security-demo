@@ -26,6 +26,22 @@
 		Role(s): <security:authentication property="principal.authorities" />
 	</p>
 	
+	<hr>
+	
+	<!-- Add a link to /leaders ... this is for the managers -->
+	<p>
+		<a href="${pageContext.request.contextPath}/leaders">Leadership Meeting</a>
+		(Only for Manager peeps)
+	</p>
+	
+	<hr>
+	
+	<!-- Add a link to /systems ... this is for the admins -->
+	<p>
+		<a href="${pageContext.request.contextPath}/systems">IT Systems Meeting</a>
+		(Only for Admin peeps)
+	</p>
+	
 	<!-- We need form tag for logout, because logout is part of the form -->
 	<form:form 
 		method="POST" 
