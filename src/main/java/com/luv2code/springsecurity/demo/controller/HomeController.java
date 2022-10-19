@@ -22,4 +22,10 @@ public class HomeController {
 	public String showSystems() {
 		return "systems";
 	}
+	
+	// add request mapping for /vip
+		@GetMapping("/vip")
+		public String showVip() {
+			return "vip";
+		}
 }
